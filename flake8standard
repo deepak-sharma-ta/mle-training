@@ -1,0 +1,17 @@
+Script started on 2023-03-21 13:00:40+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="102" LINES="53"]
+[?2004h]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ [H[2J]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ conda env list
+[?2004l# conda environments:
+#
+base                     /home/deepak/miniconda3
+code-format-exercise     /home/deepak/miniconda3/envs/code-format-exercise
+mle-dev                  /home/deepak/miniconda3/envs/mle-dev
+snakes3.9                /home/deepak/miniconda3/envs/snakes3.9
+snowflakes               /home/deepak/miniconda3/envs/snowflakes
+
+[?2004h]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ conda activate [7mcode-format-exercise[27mcode-format-exercise
+[?2004l[?2004h(code-format-exercise) ]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ [H[2J(code-format-exercise) ]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ flake [K8 nonstandardcode.py 
+[?2004l[?2004h(code-format-exercise) ]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ flake8 nonstandardcode.py 
+[?2004l[?2004h(code-format-exercise) ]0;deepak@TIGER01312: ~/practice_git_repo/assignment1.2/mle-training[01;32mdeepak@TIGER01312[00m:[01;34m~/practice_git_repo/assignment1.2/mle-training[00m$ exit
+[?2004lexit
+
+Script done on 2023-03-21 13:01:06+05:30 [COMMAND_EXIT_CODE="0"]
