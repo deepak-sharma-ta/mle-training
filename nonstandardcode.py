@@ -7,21 +7,17 @@ import tarfile
 
 import numpy as np
 import pandas as pd
+import requests
 from scipy.stats import randint
-from six.moves import urllib
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from sklearn.model_selection import (
-    GridSearchCV,
-    RandomizedSearchCV,
-    StratifiedShuffleSplit,
-    train_test_split,
-)
+from sklearn.model_selection import (GridSearchCV, RandomizedSearchCV,
+                                     StratifiedShuffleSplit, train_test_split)
 from sklearn.tree import DecisionTreeRegressor
 
-DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master/"
+DOWNLOAD_ROOT = "http://raw.githubusercontent.com/ageron/handson-ml/master/"
 HOUSING_PATH = os.path.join("datasets", "housing")
 HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
 
@@ -30,7 +26,10 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
     """fetch the housing data"""
     os.makedirs(housing_path, exist_ok=True)
     tgz_path = os.path.join(housing_path, "housing.tgz")
-    urllib.request.urlretrieve(housing_url, tgz_path)
+    r = requests.get(housing_url, timeout=30)
+    with open(tgz_path, 'wb') as f:
+        f.write(r.content)
+
     housing_tgz = tarfile.open(tgz_path)
     housing_tgz.extractall(path=housing_path)
     housing_tgz.close()
@@ -52,7 +51,6 @@ housing["income_cat"] = pd.cut(
     bins=[0.0, 1.5, 3.0, 4.5, 6.0, np.inf],
     labels=[1, 2, 3, 4, 5],
 )
-
 
 split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 for train_index, test_index in split.split(housing, housing["income_cat"]):
@@ -88,10 +86,10 @@ housing["rooms_per_household"] = housing["total_rooms"] / housing["households"]
 housing["bedrooms_per_room"] = housing["total_bedrooms"] / housing["total_rooms"]
 housing["population_per_household"] = housing["population"] / housing["households"]
 
-# drop labels for training set
-housing = strat_train_set.drop("median_house_value", axis=1)
+housing = strat_train_set.drop(
+    "median_house_value", axis=1
+)  # drop labels for training set
 housing_labels = strat_train_set["median_house_value"].copy()
-
 
 imputer = SimpleImputer(strategy="median")
 
@@ -130,7 +128,6 @@ housing_predictions = tree_reg.predict(housing_prepared)
 tree_mse = mean_squared_error(housing_labels, housing_predictions)
 tree_rmse = np.sqrt(tree_mse)
 
-
 param_distribs = {
     "n_estimators": randint(low=1, high=200),
     "max_features": randint(low=1, high=8),
@@ -149,7 +146,6 @@ rnd_search.fit(housing_prepared, housing_labels)
 cvres = rnd_search.cv_results_
 for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
     print(np.sqrt(-mean_score), params)
-
 
 param_grid = [
     # try 12 (3×4) combinations of hyperparameters
