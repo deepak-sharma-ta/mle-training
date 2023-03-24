@@ -1,23 +1,24 @@
-# taken from here: http://web.archiv
-"""Assignment 1.3.
-
-Brought in the formatted code for assignment 1.3
+# Assignment 1.4
+"""VS Code Auto formatting
+configured vs code to format the entire script
 """
-
 import os
 import tarfile
 
 import numpy as np
 import pandas as pd
-
 import requests
 from scipy.stats import randint
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from sklearn.model_selection import (GridSearchCV, RandomizedSearchCV,
-                                     StratifiedShuffleSplit, train_test_split)
+from sklearn.model_selection import (
+    GridSearchCV,
+    RandomizedSearchCV,
+    StratifiedShuffleSplit,
+    train_test_split,
+)
 from sklearn.tree import DecisionTreeRegressor
 
 DOWNLOAD_ROOT = "http://raw.githubusercontent.com/ageron/handson-ml/master/"
@@ -26,11 +27,11 @@ HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
 
 
 def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
-    """Fetch the housing data."""
+    """fetch the housing data"""
     os.makedirs(housing_path, exist_ok=True)
     tgz_path = os.path.join(housing_path, "housing.tgz")
-    r = requests.get(housing_url)
-    with open(tgz_path, 'wb') as f:
+    r = requests.get(housing_url, timeout=30)
+    with open(tgz_path, "wb") as f:
         f.write(r.content)
 
     housing_tgz = tarfile.open(tgz_path)
@@ -39,12 +40,13 @@ def fetch_housing_data(housing_url=HOUSING_URL, housing_path=HOUSING_PATH):
 
 
 def load_housing_data(housing_path=HOUSING_PATH):
-    """Load housing data."""
+    """load the housing data"""
     csv_path = os.path.join(housing_path, "housing.csv")
     return pd.read_csv(csv_path)
 
 
-housing = load_housing_data(housing_path=HOUSING_PATH)
+housing = load_housing_data()
+
 
 train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
 
@@ -61,25 +63,19 @@ for train_index, test_index in split.split(housing, housing["income_cat"]):
 
 
 def income_cat_proportions(data):
-    """Income cat proportions."""
+    """income category proportions"""
     return data["income_cat"].value_counts() / len(data)
 
 
 train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
 
-compare_props = pd.DataFrame(
+COM_PROP = pd.DataFrame(
     {
         "Overall": income_cat_proportions(housing),
         "Stratified": income_cat_proportions(strat_test_set),
         "Random": income_cat_proportions(test_set),
     }
 ).sort_index()
-compare_props["Rand. %error"] = (
-    100 * compare_props["Random"] / compare_props["Overall"] - 100
-)
-compare_props["Strat. %error"] = (
-    100 * compare_props["Stratified"] / compare_props["Overall"] - 100
-)
 
 for set_ in (strat_train_set, strat_test_set):
     set_.drop("income_cat", axis=1, inplace=True)
@@ -126,10 +122,8 @@ lin_reg.fit(housing_prepared, housing_labels)
 housing_predictions = lin_reg.predict(housing_prepared)
 lin_mse = mean_squared_error(housing_labels, housing_predictions)
 lin_rmse = np.sqrt(lin_mse)
-lin_rmse
 
 lin_mae = mean_absolute_error(housing_labels, housing_predictions)
-lin_mae
 
 tree_reg = DecisionTreeRegressor(random_state=42)
 tree_reg.fit(housing_prepared, housing_labels)
@@ -137,7 +131,6 @@ tree_reg.fit(housing_prepared, housing_labels)
 housing_predictions = tree_reg.predict(housing_prepared)
 tree_mse = mean_squared_error(housing_labels, housing_predictions)
 tree_rmse = np.sqrt(tree_mse)
-tree_rmse
 
 param_distribs = {
     "n_estimators": randint(low=1, high=200),
@@ -176,7 +169,6 @@ grid_search = GridSearchCV(
 )
 grid_search.fit(housing_prepared, housing_labels)
 
-grid_search.best_params_
 cvres = grid_search.cv_results_
 for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
     print(np.sqrt(-mean_score), params)
