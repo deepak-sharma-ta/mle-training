@@ -60,25 +60,6 @@ def test_fetch_tgz(housing_url=HOUSING_URL):
     assert sorted(df.columns.to_list()) == sorted(column_names)
 
 
-def test_loaded_df_type():
-    """Loads to the dataframe and makes assertion
-
-    Parameters
-    ----------
-
-    Returns
-    -----------
-    assertion
-        True if successful, False otherwise
-
-    Examples
-    ---------
-    >>> test_loaded_df_type()
-    assert True
-
-    """
-
-
 # def test_lin_reg(MODEL_PATH=MODEL_PATH):
 #     """Make model prediction
 #     Note: Model should exist in the given path
