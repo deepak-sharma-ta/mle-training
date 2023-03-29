@@ -14,15 +14,28 @@ sys.path.insert(0, os.path.abspath("."))
 from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
-def lin_reg_pred(MODEL_PATH, housing_prepared, housing_labels):
+def lin_reg_pred(
+    MODEL_PATH: str, housing_prepared: pd.DataFrame, housing_labels: pd.DataFrame
+):
     """Make model prediction
+    Note: Model should exist in the given path
 
-    :param MODEL_PATH: Path of the model
-    :param housing_prepared: Pre-processed housing dataset with features
-    :param housing_labels: Target labels of the housing dataset
-    :returns: rmse, mae
+    Parameters
+    ----------
+
+    param1 : str
+        MODEL_PATH: Path of the model
+    param2 : csv
+        housing_prepared: Pre-processed housing dataset with features
+    param3 : csv
+        housing_labels: Target labels of the housing dataset
+
+    Returns
+    -----------
+    rmse, mae
 
     """
+
     LIN_REG = pickle.load(open(os.path.join(MODEL_PATH, "lin_reg.pkl"), "rb"))
     housing_predictions = LIN_REG.predict(housing_prepared)
 
@@ -33,15 +46,28 @@ def lin_reg_pred(MODEL_PATH, housing_prepared, housing_labels):
     return lin_rmse, lin_mae
 
 
-def dtree_pred(MODEL_PATH, housing_prepared, housing_labels):
+def dtree_pred(
+    MODEL_PATH: str, housing_prepared: pd.DataFrame, housing_labels: pd.DataFrame
+):
     """Make model prediction
+    Note: Model should exist in the given path
 
-    :param MODEL_PATH: Path of the model
-    :param housing_prepared: Pre-processed housing dataset with features
-    :param housing_labels: Target labels of the housing dataset
-    :returns: mse, rmse
+    Parameters
+    ----------
+
+    param1 : str
+        MODEL_PATH: Path of the model
+    param2 : csv
+        housing_prepared: Pre-processed housing dataset with features
+    param3 : csv
+        housing_labels: Target labels of the housing dataset
+
+    Returns
+    -----------
+    mse, rmse
 
     """
+
     D_TREE = pickle.load(open(os.path.join(MODEL_PATH, "d_tree.pkl"), "rb"))
     housing_predictions = D_TREE.predict(housing_prepared)
 
@@ -50,15 +76,26 @@ def dtree_pred(MODEL_PATH, housing_prepared, housing_labels):
     return tree_mse, tree_rmse
 
 
-def rforest_pred(MODEL_PATH, X_test_prepared, y_test):
+def rforest_pred(MODEL_PATH: str, X_test_prepared: pd.DataFrame, y_test: pd.DataFrame):
     """Make model prediction
+    Note: Model should exist in the given path
 
-    :param MODEL_PATH: Path of the model
-    :param X_test_prepared: Pre-processed housing dataset with features from validation split
-    :param y_test: Target labels of the housing dataset from validation split
-    :returns: final_mse
+    Parameters
+    ----------
+
+    param1 : str
+        MODEL_PATH: Path of the model
+    param2 : csv
+        X_test_prepared: Pre-processed housing dataset with features
+    param3 : csv
+        y_test: Target labels of the housing dataset
+
+    Returns
+    -----------
+    mse
 
     """
+
     RFOREST_REG = pickle.load(open(os.path.join(MODEL_PATH, "random_forest.pkl"), "rb"))
     final_predictions = RFOREST_REG.predict(X_test_prepared)
     final_mse = mean_squared_error(y_test, final_predictions)

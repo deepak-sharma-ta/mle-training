@@ -19,12 +19,21 @@ sys.path.insert(0, os.path.abspath("."))
 from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
-def income_cat_proportions(data):
+def income_cat_proportions(data: str):
     """Find the income proportion per category
 
-    :param data: Path of the daaset
-    :returns: data["income_cat"].value_counts() / len(data)
+    Parameters
+    ----------
+
+    param1 : str
+        data: Path of the dataset
+
+    Returns
+    -----------
+    proportion of income category
+
     """
+
     return data["income_cat"].value_counts() / len(data)
 
 

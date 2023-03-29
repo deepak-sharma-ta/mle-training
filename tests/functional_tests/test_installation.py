@@ -12,6 +12,7 @@ def test_pkg_installation():
             StratifiedShuffleSplit,
             train_test_split,
         )
+
         from scipy.stats import randint
         from sklearn.ensemble import RandomForestRegressor
         from sklearn.impute import SimpleImputer
@@ -20,7 +21,10 @@ def test_pkg_installation():
         from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
         from sklearn.tree import DecisionTreeRegressor
 
-        from src.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
+        from src.housing_package.log_config import (
+            LOGGING_DEFAULT_CONFIG,
+            configure_logger,
+        )
 
         from sklearn.metrics import mean_absolute_error, mean_squared_error
 

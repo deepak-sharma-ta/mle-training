@@ -19,12 +19,17 @@ sys.path.append("/home/deepak/practice_git_repo/assignment2/mle-training/")
 from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
-def fetch_housing_data(housing_url, housing_path):
+def fetch_housing_data(housing_url: str, housing_path: str):
     """Download the housing data
 
-    :param housing_url: Url of the dataset
-    :param housing_path: Path where you want to save the dataset
+    Parameters
+    ----------
 
+    param1 : str
+        housing_url: Url of the dataset
+
+    param2 : str
+        housing_path: Path where the dataset is stored
     """
     os.makedirs(housing_path, exist_ok=True)
     tgz_path = os.path.join(housing_path, "housing.tgz")
@@ -38,14 +43,19 @@ def fetch_housing_data(housing_url, housing_path):
     housing_tgz.close()
 
 
-def load_housing_data(housing_path):
+def load_housing_data(housing_path: str):
     """Download the housing data
 
-    :param housing_path: Path where the dataset is stored
-    :returns: A dataframe
+    Parameters
+    ----------
 
-    >>> load_housing_data(housing_path)
-    return pd.DataFrame
+    param1 : str
+        housing_path: Path where the dataset is stored
+
+    Returns
+    -------
+    pd.DataFrame
+
     """
     csv_path = os.path.join(housing_path, "housing.csv")
 

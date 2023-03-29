@@ -33,225 +33,160 @@
 
           <div class="body" role="main">
             
-  <section id="module-src.score">
-<span id="model-scorer"></span><h1>Model Scorer<a class="headerlink" href="#module-src.score" title="Permalink to this heading">¶</a></h1>
+  <section id="module-src.housing_package.score">
+<span id="model-scorer"></span><h1>Model Scorer<a class="headerlink" href="#module-src.housing_package.score" title="Permalink to this heading">¶</a></h1>
 <p>VS Code Auto formatting
 configured vs code to format the entire script</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.score.dtree_pred">
-<span class="sig-prename descclassname"><span class="pre">src.score.</span></span><span class="sig-name descname"><span class="pre">dtree_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_prepared</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/score.html#dtree_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.score.dtree_pred" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make model prediction</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>MODEL_PATH</strong> – Path of the model</p></li>
-<li><p><strong>housing_prepared</strong> – Pre-processed housing dataset with features</p></li>
-<li><p><strong>housing_labels</strong> – Target labels of the housing dataset</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.housing_package.score.dtree_pred">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.score.</span></span><span class="sig-name descname"><span class="pre">dtree_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_prepared</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/score.html#dtree_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.score.dtree_pred" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make model prediction
+Note: Model should exist in the given path</p>
+<dl class="simple">
+<dt>param1<span class="classifier">str</span></dt><dd><p>MODEL_PATH: Path of the model</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>mse, rmse</p>
+<dt>param2<span class="classifier">csv</span></dt><dd><p>housing_prepared: Pre-processed housing dataset with features</p>
+</dd>
+<dt>param3<span class="classifier">csv</span></dt><dd><p>housing_labels: Target labels of the housing dataset</p>
 </dd>
 </dl>
+<p>mse, rmse</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.score.lin_reg_pred">
-<span class="sig-prename descclassname"><span class="pre">src.score.</span></span><span class="sig-name descname"><span class="pre">lin_reg_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_prepared</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/score.html#lin_reg_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.score.lin_reg_pred" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make model prediction</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>MODEL_PATH</strong> – Path of the model</p></li>
-<li><p><strong>housing_prepared</strong> – Pre-processed housing dataset with features</p></li>
-<li><p><strong>housing_labels</strong> – Target labels of the housing dataset</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.housing_package.score.lin_reg_pred">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.score.</span></span><span class="sig-name descname"><span class="pre">lin_reg_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_prepared</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/score.html#lin_reg_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.score.lin_reg_pred" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make model prediction
+Note: Model should exist in the given path</p>
+<dl class="simple">
+<dt>param1<span class="classifier">str</span></dt><dd><p>MODEL_PATH: Path of the model</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>rmse, mae</p>
+<dt>param2<span class="classifier">csv</span></dt><dd><p>housing_prepared: Pre-processed housing dataset with features</p>
+</dd>
+<dt>param3<span class="classifier">csv</span></dt><dd><p>housing_labels: Target labels of the housing dataset</p>
 </dd>
 </dl>
+<p>rmse, mae</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.score.rforest_pred">
-<span class="sig-prename descclassname"><span class="pre">src.score.</span></span><span class="sig-name descname"><span class="pre">rforest_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test_prepared</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/score.html#rforest_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.score.rforest_pred" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make model prediction</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>MODEL_PATH</strong> – Path of the model</p></li>
-<li><p><strong>X_test_prepared</strong> – Pre-processed housing dataset with features from validation split</p></li>
-<li><p><strong>y_test</strong> – Target labels of the housing dataset from validation split</p></li>
-</ul>
+<dt class="sig sig-object py" id="src.housing_package.score.rforest_pred">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.score.</span></span><span class="sig-name descname"><span class="pre">rforest_pred</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test_prepared</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/score.html#rforest_pred"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.score.rforest_pred" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make model prediction
+Note: Model should exist in the given path</p>
+<dl class="simple">
+<dt>param1<span class="classifier">str</span></dt><dd><p>MODEL_PATH: Path of the model</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>final_mse</p>
+<dt>param2<span class="classifier">csv</span></dt><dd><p>X_test_prepared: Pre-processed housing dataset with features</p>
+</dd>
+<dt>param3<span class="classifier">csv</span></dt><dd><p>y_test: Target labels of the housing dataset</p>
 </dd>
 </dl>
+<p>mse</p>
 </dd></dl>
 
 </section>
-<section id="module-src.train">
-<span id="model-trainer"></span><h1>Model Trainer<a class="headerlink" href="#module-src.train" title="Permalink to this heading">¶</a></h1>
+<section id="module-src.housing_package.train">
+<span id="model-trainer"></span><h1>Model Trainer<a class="headerlink" href="#module-src.housing_package.train" title="Permalink to this heading">¶</a></h1>
 <p>Practice
 to train models</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.train.income_cat_proportions">
-<span class="sig-prename descclassname"><span class="pre">src.train.</span></span><span class="sig-name descname"><span class="pre">income_cat_proportions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/train.html#income_cat_proportions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.train.income_cat_proportions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="src.housing_package.train.income_cat_proportions">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.train.</span></span><span class="sig-name descname"><span class="pre">income_cat_proportions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/train.html#income_cat_proportions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.train.income_cat_proportions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the income proportion per category</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> – Path of the daaset</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>data[“income_cat”].value_counts() / len(data)</p>
+<dl class="simple">
+<dt>param1<span class="classifier">str</span></dt><dd><p>data: Path of the dataset</p>
 </dd>
 </dl>
+<p>proportion of income category</p>
 </dd></dl>
 
 </section>
 <section id="module-tests.unit_tests.test_data_ingestion">
 <span id="test-data-ingestion"></span><h1>Test_data_ingestion<a class="headerlink" href="#module-tests.unit_tests.test_data_ingestion" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="tests.unit_tests.test_data_ingestion.test_d_tree">
-<span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_d_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/deepak/practice_git_repo/assignment2/mle-training/artifacts/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_d_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_d_tree" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make model prediction</p>
-<p>Note: Model should exist in the given path</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>MODEL_PATH</strong> – Path of the model</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>An assertion</p>
+<dt class="sig sig-object py" id="tests.unit_tests.test_data_ingestion.test_fetch_tgz">
+<span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_fetch_tgz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.tgz'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_fetch_tgz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_fetch_tgz" title="Permalink to this definition">¶</a></dt>
+<dd><p>fetches to the dataset and makes assertion</p>
+<dl class="simple">
+<dt>param1: str</dt><dd><p>housing_url: url for fetching the dataset</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_d_tree</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">=</span><span class="n">MODEL_PATH</span><span class="p">)</span>
-<span class="go">assert True</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tests.unit_tests.test_data_ingestion.test_lin_reg">
-<span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_lin_reg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/deepak/practice_git_repo/assignment2/mle-training/artifacts/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_lin_reg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_lin_reg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make model prediction</p>
-<p>Note: Model should exist in the given path</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>MODEL_PATH</strong> – Path of the model</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>An assertion</p>
+<dl class="simple">
+<dt>assertion</dt><dd><p>True if successful, False otherwise</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_lin_reg</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">=</span><span class="n">MODEL_PATH</span><span class="p">)</span>
-<span class="go">assert True</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tests.unit_tests.test_data_ingestion.test_loaded_df_type">
-<span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_loaded_df_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/raw/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_loaded_df_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_loaded_df_type" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_loaded_df_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_loaded_df_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_loaded_df_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads to the dataframe and makes assertion</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> – Path of the csv file</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>An assertion</p>
+<dl class="simple">
+<dt>assertion</dt><dd><p>True if successful, False otherwise</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_loaded_df_type</span><span class="p">(</span><span class="s1">&#39;src/app.py&#39;</span><span class="p">)</span>
-<span class="go">assert True</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tests.unit_tests.test_data_ingestion.test_rforest">
-<span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_rforest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODEL_PATH</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/home/deepak/practice_git_repo/assignment2/mle-training/artifacts/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_rforest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_rforest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make model prediction</p>
-<p>Note: Model should exist in the given path</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>MODEL_PATH</strong> – Path of the model</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>An assertion</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_rforest</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">=</span><span class="n">MODEL_PATH</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">test_loaded_df_type</span><span class="p">()</span>
 <span class="go">assert True</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </section>
-<section id="module-src.ingest_data">
-<span id="data-ingestion"></span><h1>Data_ingestion<a class="headerlink" href="#module-src.ingest_data" title="Permalink to this heading">¶</a></h1>
+<section id="module-src.housing_package.ingest_data">
+<span id="data-ingestion"></span><h1>Data_ingestion<a class="headerlink" href="#module-src.housing_package.ingest_data" title="Permalink to this heading">¶</a></h1>
 <p>VS Code Auto formatting
 configured vs code to format the entire script</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.ingest_data.fetch_housing_data">
-<span class="sig-prename descclassname"><span class="pre">src.ingest_data.</span></span><span class="sig-name descname"><span class="pre">fetch_housing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ingest_data.html#fetch_housing_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingest_data.fetch_housing_data" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="src.housing_package.ingest_data.fetch_housing_data">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.ingest_data.</span></span><span class="sig-name descname"><span class="pre">fetch_housing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/ingest_data.html#fetch_housing_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.ingest_data.fetch_housing_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download the housing data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>housing_url</strong> – Url of the dataset</p></li>
-<li><p><strong>housing_path</strong> – Path where you want to save the dataset</p></li>
-</ul>
+<dl class="simple">
+<dt>param1<span class="classifier">str</span></dt><dd><p>housing_url: Url of the dataset</p>
+</dd>
+<dt>param2<span class="classifier">str</span></dt><dd><p>housing_path: Path where the dataset is stored</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.ingest_data.load_housing_data">
-<span class="sig-prename descclassname"><span class="pre">src.ingest_data.</span></span><span class="sig-name descname"><span class="pre">load_housing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/ingest_data.html#load_housing_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.ingest_data.load_housing_data" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="src.housing_package.ingest_data.load_housing_data">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.ingest_data.</span></span><span class="sig-name descname"><span class="pre">load_housing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/ingest_data.html#load_housing_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.ingest_data.load_housing_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download the housing data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>housing_path</strong> – Path where the dataset is stored</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dataframe</p>
+<dl class="simple">
+<dt>param1<span class="classifier">str</span></dt><dd><p>housing_path: Path where the dataset is stored</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">load_housing_data</span><span class="p">(</span><span class="n">housing_path</span><span class="p">)</span>
-<span class="go">return pd.DataFrame</span>
-</pre></div>
-</div>
+<p>pd.DataFrame</p>
 </dd></dl>
 
 </section>
-<section id="module-src.log_config">
-<span id="logger-configuration"></span><h1>Logger Configuration<a class="headerlink" href="#module-src.log_config" title="Permalink to this heading">¶</a></h1>
+<section id="module-src.housing_package.log_config">
+<span id="logger-configuration"></span><h1>Logger Configuration<a class="headerlink" href="#module-src.housing_package.log_config" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.log_config.configure_logger">
-<span class="sig-prename descclassname"><span class="pre">src.log_config.</span></span><span class="sig-name descname"><span class="pre">configure_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DEBUG'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/log_config.html#configure_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.log_config.configure_logger" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="src.housing_package.log_config.configure_logger">
+<span class="sig-prename descclassname"><span class="pre">src.housing_package.log_config.</span></span><span class="sig-name descname"><span class="pre">configure_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger:</span> <span class="pre">&lt;module</span> <span class="pre">'logging'</span> <span class="pre">from</span> <span class="pre">'/home/deepak/miniconda3/envs/mle-dev/lib/python3.10/logging/__init__.py'&gt;</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg:</span> <span class="pre">dict</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_file:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">console:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'DEBUG'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/log_config.html#configure_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.log_config.configure_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Function to setup configurations of logger through function.</p>
 <p>The individual arguments of <cite>log_file</cite>, <cite>console</cite>, <cite>log_level</cite> will overwrite the ones in cfg.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logger</strong> – Predefined logger object if present. If None a ew logger object will be created from root.</p></li>
-<li><p><strong>cfg</strong> – dict()
-Configuration of the logging to be implemented by default</p></li>
-<li><p><strong>log_file</strong> – str
-Path to the log file for logs to be stored</p></li>
-<li><p><strong>console</strong> – bool
-To include a console handler(logs printing in console)</p></li>
-<li><p><strong>log_level</strong> – str
-One of <cite>[“INFO”,”DEBUG”,”WARNING”,”ERROR”,”CRITICAL”]</cite>
-default - <cite>“DEBUG”</cite></p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>logging.Logger</p>
+<dl class="simple">
+<dt>param1 :</dt><dd><dl class="simple">
+<dt>logger:</dt><dd><p>Predefined logger object if present. If None a ew logger object will be created from root.</p>
 </dd>
 </dl>
+</dd>
+<dt>param2<span class="classifier">dict()</span></dt><dd><p>cfg: Configuration of the logging to be implemented by default</p>
+</dd>
+<dt>param3<span class="classifier">str</span></dt><dd><p>log_file: Path to the log file for logs to be stored</p>
+</dd>
+<dt>param4<span class="classifier">bool</span></dt><dd><p>console: To include a console handler(logs printing in console)</p>
+</dd>
+<dt>param5<span class="classifier">str</span></dt><dd><dl class="simple">
+<dt>log_level: One of <cite>[“INFO”,”DEBUG”,”WARNING”,”ERROR”,”CRITICAL”]</cite></dt><dd><p>default - <cite>“DEBUG”</cite></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>logging.Logger</p>
 </dd></dl>
 
 </section>
@@ -276,10 +211,10 @@ default - <cite>“DEBUG”</cite></p></li>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Model Scorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-src.train">Model Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-src.housing_package.train">Model Trainer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#module-tests.unit_tests.test_data_ingestion">Test_data_ingestion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-src.ingest_data">Data_ingestion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-src.log_config">Logger Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-src.housing_package.ingest_data">Data_ingestion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-src.housing_package.log_config">Logger Configuration</a></li>
 </ul>
 
 <div class="relations">

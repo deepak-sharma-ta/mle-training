@@ -21,26 +21,37 @@ LOGGING_DEFAULT_CONFIG = {
 
 
 def configure_logger(
-    logger=None, cfg=None, log_file=None, console=True, log_level="DEBUG"
+    logger: logging = None,
+    cfg: dict = None,
+    log_file: str = None,
+    console: bool = True,
+    log_level: str = "DEBUG",
 ):
     """Function to setup configurations of logger through function.
 
     The individual arguments of `log_file`, `console`, `log_level` will overwrite the ones in cfg.
 
-    :param logger:
+    Parameters
+    ----------
+
+    param1 :
+        logger:
             Predefined logger object if present. If None a ew logger object will be created from root.
-    :param cfg: dict()
-            Configuration of the logging to be implemented by default
-    :param log_file: str
-            Path to the log file for logs to be stored
-    :param console: bool
-            To include a console handler(logs printing in console)
-    :param log_level: str
-            One of `["INFO","DEBUG","WARNING","ERROR","CRITICAL"]`
+    param2 : dict()
+        cfg: Configuration of the logging to be implemented by default
+    param3 : str
+        log_file: Path to the log file for logs to be stored
+    param4 : bool
+        console: To include a console handler(logs printing in console)
+    param5 : str
+        log_level: One of `["INFO","DEBUG","WARNING","ERROR","CRITICAL"]`
             default - `"DEBUG"`
 
-    :returns: logging.Logger
+    Returns
+    -----------
+    logging.Logger
     """
+
     if not cfg:
         logging.config.dictConfig(LOGGING_DEFAULT_CONFIG)
     else:

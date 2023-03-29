@@ -1,11 +1,11 @@
 Model Scorer
 ---------------------
-.. automodule:: src.score
+.. automodule:: src.housing_package.score
     :members:
 
 Model Trainer
 ---------------------
-.. automodule:: src.train
+.. automodule:: src.housing_package.train
     :members:
 
 Test_data_ingestion
@@ -16,10 +16,10 @@ Test_data_ingestion
 
 Data_ingestion
 ---------------------
-.. automodule:: src.ingest_data
+.. automodule:: src.housing_package.ingest_data
     :members:
 
 Logger Configuration
 ---------------------
-.. automodule:: src.log_config
+.. automodule:: src.housing_package.log_config
     :members:
