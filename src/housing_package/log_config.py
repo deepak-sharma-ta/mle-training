@@ -34,17 +34,16 @@ def configure_logger(
     Parameters
     ----------
 
-    param1 :
-        logger:
-            Predefined logger object if present. If None a ew logger object will be created from root.
-    param2 : dict()
-        cfg: Configuration of the logging to be implemented by default
-    param3 : str
-        log_file: Path to the log file for logs to be stored
-    param4 : bool
-        console: To include a console handler(logs printing in console)
-    param5 : str
-        log_level: One of `["INFO","DEBUG","WARNING","ERROR","CRITICAL"]`
+    logger : logging
+        Predefined logger object if present. If None a ew logger object will be created from root.
+    cfg : dict()
+        Configuration of the logging to be implemented by default
+    log_file : str
+        Path to the log file for logs to be stored
+    console : bool
+        To include a console handler(logs printing in console)
+    log_level : str
+        One of `["INFO","DEBUG","WARNING","ERROR","CRITICAL"]`
             default - `"DEBUG"`
 
     Returns

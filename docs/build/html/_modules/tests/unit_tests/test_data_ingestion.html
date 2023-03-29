@@ -56,8 +56,8 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 
-<span class="sd">    param1: str</span>
-<span class="sd">        housing_url: url for fetching the dataset</span>
+<span class="sd">    housing_url: str</span>
+<span class="sd">        url for fetching the dataset</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -----------</span>
@@ -93,144 +93,6 @@
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">column_names</span><span class="p">)</span></div>
-
-
-<span class="c1"># def test_lin_reg(MODEL_PATH=MODEL_PATH):</span>
-<span class="c1">#     &quot;&quot;&quot;Make model prediction</span>
-<span class="c1">#     Note: Model should exist in the given path</span>
-
-<span class="c1">#     Parameters</span>
-<span class="c1">#     ----------</span>
-
-<span class="c1">#     param1 : str</span>
-<span class="c1">#         MODEL_PATH: Path of the model</span>
-
-<span class="c1">#     Returns</span>
-<span class="c1">#     -----------</span>
-<span class="c1">#     assertion</span>
-<span class="c1">#         True if successful, False otherwise</span>
-
-<span class="c1">#     Examples</span>
-<span class="c1">#     ---------</span>
-<span class="c1">#     &gt;&gt;&gt; test_lin_reg(MODEL_PATH=MODEL_PATH)</span>
-<span class="c1">#     assert True</span>
-
-<span class="c1">#     &quot;&quot;&quot;</span>
-
-<span class="c1">#     LIN_REG = pickle.load(open(os.path.join(MODEL_PATH, &quot;lin_reg.pkl&quot;), &quot;rb&quot;))</span>
-<span class="c1">#     arr = np.asarray(</span>
-<span class="c1">#         [</span>
-<span class="c1">#             -1.21460000e02,</span>
-<span class="c1">#             3.85200000e01,</span>
-<span class="c1">#             2.90000000e01,</span>
-<span class="c1">#             3.87300000e03,</span>
-<span class="c1">#             7.97000000e02,</span>
-<span class="c1">#             2.23700000e03,</span>
-<span class="c1">#             7.06000000e02,</span>
-<span class="c1">#             2.17360000e00,</span>
-<span class="c1">#             5.48583569e00,</span>
-<span class="c1">#             2.05783630e-01,</span>
-<span class="c1">#             3.16855524e00,</span>
-<span class="c1">#             1.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#         ]</span>
-<span class="c1">#     ).reshape(1, -1)</span>
-
-<span class="c1">#     assert round(LIN_REG.predict(arr)[0]) == 85658</span>
-
-
-<span class="c1"># def test_d_tree(MODEL_PATH=MODEL_PATH):</span>
-<span class="c1">#     &quot;&quot;&quot;Make model prediction</span>
-<span class="c1">#     Note: Model should exist in the given path</span>
-
-<span class="c1">#     Parameters</span>
-<span class="c1">#     ----------</span>
-
-<span class="c1">#     param1 : str</span>
-<span class="c1">#         MODEL_PATH: Path of the model</span>
-
-<span class="c1">#     Returns</span>
-<span class="c1">#     -----------</span>
-<span class="c1">#     assertion</span>
-<span class="c1">#         True if successful, False otherwise</span>
-
-<span class="c1">#     Examples</span>
-<span class="c1">#     ---------</span>
-<span class="c1">#     &gt;&gt;&gt; test_d_tree(MODEL_PATH=MODEL_PATH)</span>
-<span class="c1">#     assert True</span>
-
-<span class="c1">#     &quot;&quot;&quot;</span>
-
-<span class="c1">#     D_TREE = pickle.load(open(os.path.join(MODEL_PATH, &quot;d_tree.pkl&quot;), &quot;rb&quot;))</span>
-<span class="c1">#     arr = np.asarray(</span>
-<span class="c1">#         [</span>
-<span class="c1">#             -1.21460000e02,</span>
-<span class="c1">#             3.85200000e01,</span>
-<span class="c1">#             2.90000000e01,</span>
-<span class="c1">#             3.87300000e03,</span>
-<span class="c1">#             7.97000000e02,</span>
-<span class="c1">#             2.23700000e03,</span>
-<span class="c1">#             7.06000000e02,</span>
-<span class="c1">#             2.17360000e00,</span>
-<span class="c1">#             5.48583569e00,</span>
-<span class="c1">#             2.05783630e-01,</span>
-<span class="c1">#             3.16855524e00,</span>
-<span class="c1">#             1.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#         ]</span>
-<span class="c1">#     ).reshape(1, -1)</span>
-
-<span class="c1">#     assert round(D_TREE.predict(arr)[0]) == 72100</span>
-
-
-<span class="c1"># def test_rforest(MODEL_PATH=MODEL_PATH):</span>
-<span class="c1">#     &quot;&quot;&quot;Make model prediction</span>
-<span class="c1">#     Note: Model should exist in the given path</span>
-
-<span class="c1">#     Parameters</span>
-<span class="c1">#     ----------</span>
-
-<span class="c1">#     param1 : str</span>
-<span class="c1">#         MODEL_PATH: Path of the model</span>
-
-<span class="c1">#     Returns</span>
-<span class="c1">#     -----------</span>
-<span class="c1">#     assertion</span>
-<span class="c1">#         True if successful, False otherwise</span>
-
-<span class="c1">#     Examples</span>
-<span class="c1">#     ---------</span>
-<span class="c1">#     &gt;&gt;&gt; test_rforest(MODEL_PATH=MODEL_PATH)</span>
-<span class="c1">#     assert True</span>
-
-<span class="c1">#     &quot;&quot;&quot;</span>
-
-<span class="c1">#     RFOREST_REG = pickle.load(open(os.path.join(MODEL_PATH, &quot;random_forest.pkl&quot;), &quot;rb&quot;))</span>
-<span class="c1">#     arr = np.asarray(</span>
-<span class="c1">#         [</span>
-<span class="c1">#             -1.18390000e02,</span>
-<span class="c1">#             3.41200000e01,</span>
-<span class="c1">#             2.90000000e01,</span>
-<span class="c1">#             6.44700000e03,</span>
-<span class="c1">#             1.01200000e03,</span>
-<span class="c1">#             2.18400000e03,</span>
-<span class="c1">#             9.60000000e02,</span>
-<span class="c1">#             8.28160000e00,</span>
-<span class="c1">#             6.71562500e00,</span>
-<span class="c1">#             1.56972235e-01,</span>
-<span class="c1">#             2.27500000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#             0.00000000e00,</span>
-<span class="c1">#         ]</span>
-<span class="c1">#     ).reshape(1, -1)</span>
-
-<span class="c1">#     assert round(RFOREST_REG.predict(arr)[0]) == 491164</span>
 </pre></div>
 
           </div>

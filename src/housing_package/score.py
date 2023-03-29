@@ -23,12 +23,12 @@ def lin_reg_pred(
     Parameters
     ----------
 
-    param1 : str
-        MODEL_PATH: Path of the model
-    param2 : csv
-        housing_prepared: Pre-processed housing dataset with features
-    param3 : csv
-        housing_labels: Target labels of the housing dataset
+    MODEL_PATH : str
+        Path of the model
+    housing_prepared : csv
+        Pre-processed housing dataset with features
+    housing_labels : csv
+        Target labels of the housing dataset
 
     Returns
     -----------
@@ -55,12 +55,12 @@ def dtree_pred(
     Parameters
     ----------
 
-    param1 : str
-        MODEL_PATH: Path of the model
-    param2 : csv
-        housing_prepared: Pre-processed housing dataset with features
-    param3 : csv
-        housing_labels: Target labels of the housing dataset
+    MODEL_PATH : str
+        Path of the model
+    housing_prepared : csv
+        Pre-processed housing dataset with features
+    housing_labels : csv
+        Target labels of the housing dataset
 
     Returns
     -----------
@@ -83,12 +83,12 @@ def rforest_pred(MODEL_PATH: str, X_test_prepared: pd.DataFrame, y_test: pd.Data
     Parameters
     ----------
 
-    param1 : str
-        MODEL_PATH: Path of the model
-    param2 : csv
-        X_test_prepared: Pre-processed housing dataset with features
-    param3 : csv
-        y_test: Target labels of the housing dataset
+    MODEL_PATH : str
+        Path of the model
+    X_test_prepared : csv
+        Pre-processed housing dataset with features
+    y_test : csv
+        Target labels of the housing dataset
 
     Returns
     -----------

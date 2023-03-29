@@ -43,11 +43,11 @@ configured vs code to format the entire script</p>
 <dd><p>Make model prediction
 Note: Model should exist in the given path</p>
 <dl class="simple">
-<dt>param1<span class="classifier">str</span></dt><dd><p>MODEL_PATH: Path of the model</p>
+<dt>MODEL_PATH<span class="classifier">str</span></dt><dd><p>Path of the model</p>
 </dd>
-<dt>param2<span class="classifier">csv</span></dt><dd><p>housing_prepared: Pre-processed housing dataset with features</p>
+<dt>housing_prepared<span class="classifier">csv</span></dt><dd><p>Pre-processed housing dataset with features</p>
 </dd>
-<dt>param3<span class="classifier">csv</span></dt><dd><p>housing_labels: Target labels of the housing dataset</p>
+<dt>housing_labels<span class="classifier">csv</span></dt><dd><p>Target labels of the housing dataset</p>
 </dd>
 </dl>
 <p>mse, rmse</p>
@@ -59,11 +59,11 @@ Note: Model should exist in the given path</p>
 <dd><p>Make model prediction
 Note: Model should exist in the given path</p>
 <dl class="simple">
-<dt>param1<span class="classifier">str</span></dt><dd><p>MODEL_PATH: Path of the model</p>
+<dt>MODEL_PATH<span class="classifier">str</span></dt><dd><p>Path of the model</p>
 </dd>
-<dt>param2<span class="classifier">csv</span></dt><dd><p>housing_prepared: Pre-processed housing dataset with features</p>
+<dt>housing_prepared<span class="classifier">csv</span></dt><dd><p>Pre-processed housing dataset with features</p>
 </dd>
-<dt>param3<span class="classifier">csv</span></dt><dd><p>housing_labels: Target labels of the housing dataset</p>
+<dt>housing_labels<span class="classifier">csv</span></dt><dd><p>Target labels of the housing dataset</p>
 </dd>
 </dl>
 <p>rmse, mae</p>
@@ -75,11 +75,11 @@ Note: Model should exist in the given path</p>
 <dd><p>Make model prediction
 Note: Model should exist in the given path</p>
 <dl class="simple">
-<dt>param1<span class="classifier">str</span></dt><dd><p>MODEL_PATH: Path of the model</p>
+<dt>MODEL_PATH<span class="classifier">str</span></dt><dd><p>Path of the model</p>
 </dd>
-<dt>param2<span class="classifier">csv</span></dt><dd><p>X_test_prepared: Pre-processed housing dataset with features</p>
+<dt>X_test_prepared<span class="classifier">csv</span></dt><dd><p>Pre-processed housing dataset with features</p>
 </dd>
-<dt>param3<span class="classifier">csv</span></dt><dd><p>y_test: Target labels of the housing dataset</p>
+<dt>y_test<span class="classifier">csv</span></dt><dd><p>Target labels of the housing dataset</p>
 </dd>
 </dl>
 <p>mse</p>
@@ -95,7 +95,7 @@ to train models</p>
 <span class="sig-prename descclassname"><span class="pre">src.housing_package.train.</span></span><span class="sig-name descname"><span class="pre">income_cat_proportions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/train.html#income_cat_proportions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.train.income_cat_proportions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the income proportion per category</p>
 <dl class="simple">
-<dt>param1<span class="classifier">str</span></dt><dd><p>data: Path of the dataset</p>
+<dt>data<span class="classifier">str</span></dt><dd><p>Path of the dataset</p>
 </dd>
 </dl>
 <p>proportion of income category</p>
@@ -109,7 +109,7 @@ to train models</p>
 <span class="sig-prename descclassname"><span class="pre">tests.unit_tests.test_data_ingestion.</span></span><span class="sig-name descname"><span class="pre">test_fetch_tgz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.tgz'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tests/unit_tests/test_data_ingestion.html#test_fetch_tgz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tests.unit_tests.test_data_ingestion.test_fetch_tgz" title="Permalink to this definition">¶</a></dt>
 <dd><p>fetches to the dataset and makes assertion</p>
 <dl class="simple">
-<dt>param1: str</dt><dd><p>housing_url: url for fetching the dataset</p>
+<dt>housing_url: str</dt><dd><p>url for fetching the dataset</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -128,9 +128,9 @@ configured vs code to format the entire script</p>
 <span class="sig-prename descclassname"><span class="pre">src.housing_package.ingest_data.</span></span><span class="sig-name descname"><span class="pre">fetch_housing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">housing_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/ingest_data.html#fetch_housing_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.ingest_data.fetch_housing_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download the housing data</p>
 <dl class="simple">
-<dt>param1<span class="classifier">str</span></dt><dd><p>housing_url: Url of the dataset</p>
+<dt>housing_url<span class="classifier">str</span></dt><dd><p>Url of the dataset</p>
 </dd>
-<dt>param2<span class="classifier">str</span></dt><dd><p>housing_path: Path where the dataset is stored</p>
+<dt>housing_path<span class="classifier">str</span></dt><dd><p>Path where the dataset is stored</p>
 </dd>
 </dl>
 </dd></dl>
@@ -140,7 +140,7 @@ configured vs code to format the entire script</p>
 <span class="sig-prename descclassname"><span class="pre">src.housing_package.ingest_data.</span></span><span class="sig-name descname"><span class="pre">load_housing_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">housing_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/housing_package/ingest_data.html#load_housing_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.housing_package.ingest_data.load_housing_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download the housing data</p>
 <dl class="simple">
-<dt>param1<span class="classifier">str</span></dt><dd><p>housing_path: Path where the dataset is stored</p>
+<dt>housing_path<span class="classifier">str</span></dt><dd><p>Path where the dataset is stored</p>
 </dd>
 </dl>
 <p>pd.DataFrame</p>
@@ -155,19 +155,16 @@ configured vs code to format the entire script</p>
 <dd><p>Function to setup configurations of logger through function.</p>
 <p>The individual arguments of <cite>log_file</cite>, <cite>console</cite>, <cite>log_level</cite> will overwrite the ones in cfg.</p>
 <dl class="simple">
-<dt>param1 :</dt><dd><dl class="simple">
-<dt>logger:</dt><dd><p>Predefined logger object if present. If None a ew logger object will be created from root.</p>
+<dt>logger<span class="classifier">logging</span></dt><dd><p>Predefined logger object if present. If None a ew logger object will be created from root.</p>
 </dd>
-</dl>
+<dt>cfg<span class="classifier">dict()</span></dt><dd><p>Configuration of the logging to be implemented by default</p>
 </dd>
-<dt>param2<span class="classifier">dict()</span></dt><dd><p>cfg: Configuration of the logging to be implemented by default</p>
+<dt>log_file<span class="classifier">str</span></dt><dd><p>Path to the log file for logs to be stored</p>
 </dd>
-<dt>param3<span class="classifier">str</span></dt><dd><p>log_file: Path to the log file for logs to be stored</p>
+<dt>console<span class="classifier">bool</span></dt><dd><p>To include a console handler(logs printing in console)</p>
 </dd>
-<dt>param4<span class="classifier">bool</span></dt><dd><p>console: To include a console handler(logs printing in console)</p>
-</dd>
-<dt>param5<span class="classifier">str</span></dt><dd><dl class="simple">
-<dt>log_level: One of <cite>[“INFO”,”DEBUG”,”WARNING”,”ERROR”,”CRITICAL”]</cite></dt><dd><p>default - <cite>“DEBUG”</cite></p>
+<dt>log_level<span class="classifier">str</span></dt><dd><dl class="simple">
+<dt>One of <cite>[“INFO”,”DEBUG”,”WARNING”,”ERROR”,”CRITICAL”]</cite></dt><dd><p>default - <cite>“DEBUG”</cite></p>
 </dd>
 </dl>
 </dd>

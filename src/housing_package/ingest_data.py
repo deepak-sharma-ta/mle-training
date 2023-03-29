@@ -25,11 +25,11 @@ def fetch_housing_data(housing_url: str, housing_path: str):
     Parameters
     ----------
 
-    param1 : str
-        housing_url: Url of the dataset
+    housing_url : str
+        Url of the dataset
 
-    param2 : str
-        housing_path: Path where the dataset is stored
+    housing_path : str
+        Path where the dataset is stored
     """
     os.makedirs(housing_path, exist_ok=True)
     tgz_path = os.path.join(housing_path, "housing.tgz")
@@ -49,8 +49,8 @@ def load_housing_data(housing_path: str):
     Parameters
     ----------
 
-    param1 : str
-        housing_path: Path where the dataset is stored
+    housing_path : str
+        Path where the dataset is stored
 
     Returns
     -------

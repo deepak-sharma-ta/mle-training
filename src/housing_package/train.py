@@ -25,8 +25,8 @@ def income_cat_proportions(data: str):
     Parameters
     ----------
 
-    param1 : str
-        data: Path of the dataset
+    data : str
+        Path of the dataset
 
     Returns
     -----------
