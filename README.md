@@ -18,17 +18,17 @@ The following techniques have been used:
 -> conda env create -f linux_cpu_py310.yml <br>
 -> conda activate mle-dev<br>
 
-To download the CSV file
+To download the CSV file<br>
 -> python3 src/ingest.py<br>
-To display the supported command line arguments
--> python3 src/ingest.py -h<br>
+To display the supported command line arguments<br>
+-> python3 src/ingest.py -h<br> 
 
-To Train with the dataset
+To Train with the dataset<br>
 -> python3 src/train.py<br>
-To display the supported command line arguments
--> python3 src/train.py -h<br>
+To display the supported command line arguments<br>
+-> python3 src/train.py -h<br> 
 
-To evaluate the trained model
+To evaluate the trained model<br>
 -> python3 src/score.py<br>
-To display the supported command line arguments
+To display the supported command line arguments<br>
 -> python3 src/score.py -h<br>
