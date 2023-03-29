@@ -16,7 +16,7 @@ from sklearn.model_selection import (
 import sys
 
 sys.path.append("/home/deepak/practice_git_repo/assignment2/mle-training/")
-from src.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
+from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
 def fetch_housing_data(housing_url, housing_path):

@@ -16,7 +16,7 @@ from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from sklearn.tree import DecisionTreeRegressor
 
 sys.path.insert(0, os.path.abspath("."))
-from src.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
+from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
 def income_cat_proportions(data):

@@ -11,7 +11,7 @@ import sys
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 sys.path.insert(0, os.path.abspath("."))
-from src.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
+from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
 def lin_reg_pred(MODEL_PATH, housing_prepared, housing_labels):

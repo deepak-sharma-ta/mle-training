@@ -14,7 +14,7 @@ The following techniques have been used:
  - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is (root) mean squared error, MAE.
 
-## To excute the script
+## To execute the script
 -> conda env create -f linux_cpu_py310.yml <br>
 -> conda activate mle-dev<br>
 
