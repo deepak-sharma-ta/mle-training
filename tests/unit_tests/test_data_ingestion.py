@@ -57,6 +57,7 @@ def test_fetch_tgz(housing_url=HOUSING_URL):
         "ocean_proximity",
     ]
     df = pd.read_csv("housing.csv")
+    os.remove("housing.csv")
     assert sorted(df.columns.to_list()) == sorted(column_names)
 
 

@@ -91,26 +91,8 @@
         <span class="s2">&quot;ocean_proximity&quot;</span><span class="p">,</span>
     <span class="p">]</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;housing.csv&quot;</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">column_names</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="test_loaded_df_type"><a class="viewcode-back" href="../../../api.html#tests.unit_tests.test_data_ingestion.test_loaded_df_type">[docs]</a><span class="k">def</span> <span class="nf">test_loaded_df_type</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads to the dataframe and makes assertion</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -----------</span>
-<span class="sd">    assertion</span>
-<span class="sd">        True if successful, False otherwise</span>
-
-<span class="sd">    Examples</span>
-<span class="sd">    ---------</span>
-<span class="sd">    &gt;&gt;&gt; test_loaded_df_type()</span>
-<span class="sd">    assert True</span>
-
-<span class="sd">    &quot;&quot;&quot;</span></div>
 
 
 <span class="c1"># def test_lin_reg(MODEL_PATH=MODEL_PATH):</span>
