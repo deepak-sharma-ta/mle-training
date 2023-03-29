@@ -15,6 +15,20 @@ The following techniques have been used:
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
 
 ## To excute the script
--> conda env create -f env.yml <br>
+-> conda env create -f linux_cpu_py310.yml <br>
 -> conda activate mle-dev<br>
--> python nonstandardcode.py<br>
+
+To download the CSV file
+-> python3 src/ingest.py<br>
+To display the supported command line arguments
+-> python3 src/ingest.py -h<br>
+
+To Train with the dataset
+-> python3 src/train.py<br>
+To display the supported command line arguments
+-> python3 src/train.py -h<br>
+
+To evaluate the trained model
+-> python3 src/score.py<br>
+To display the supported command line arguments
+-> python3 src/score.py -h<br>

@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tests.unit_tests.test_data_ingestion &#8212; mle-training 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for tests.unit_tests.test_data_ingestion</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/home/deepak/practice_git_repo/assignment2/mle-training/&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">src.ingest_data</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">load_housing_data</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">MODEL_PATH</span> <span class="o">=</span> <span class="s2">&quot;/home/deepak/practice_git_repo/assignment2/mle-training/artifacts/&quot;</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;data/raw/&quot;</span>
+
+
+<div class="viewcode-block" id="test_loaded_df_type"><a class="viewcode-back" href="../../../api.html#tests.unit_tests.test_data_ingestion.test_loaded_df_type">[docs]</a><span class="k">def</span> <span class="nf">test_loaded_df_type</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">PATH</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads to the dataframe and makes assertion</span>
+
+<span class="sd">    :param path: Path of the csv file</span>
+<span class="sd">    :returns: An assertion</span>
+
+<span class="sd">    &gt;&gt;&gt; test_loaded_df_type(&#39;src/app.py&#39;)</span>
+<span class="sd">    assert True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">path</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">load_housing_data</span><span class="p">(</span><span class="n">housing_path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># requires csv file in the correct path</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_lin_reg"><a class="viewcode-back" href="../../../api.html#tests.unit_tests.test_data_ingestion.test_lin_reg">[docs]</a><span class="k">def</span> <span class="nf">test_lin_reg</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">=</span><span class="n">MODEL_PATH</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make model prediction</span>
+
+<span class="sd">    Note: Model should exist in the given path</span>
+
+<span class="sd">    :param MODEL_PATH: Path of the model</span>
+<span class="sd">    :returns: An assertion</span>
+
+<span class="sd">    &gt;&gt;&gt; test_lin_reg(MODEL_PATH=MODEL_PATH)</span>
+<span class="sd">    assert True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">LIN_REG</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="p">,</span> <span class="s2">&quot;lin_reg.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="o">-</span><span class="mf">1.21460000e02</span><span class="p">,</span>
+            <span class="mf">3.85200000e01</span><span class="p">,</span>
+            <span class="mf">2.90000000e01</span><span class="p">,</span>
+            <span class="mf">3.87300000e03</span><span class="p">,</span>
+            <span class="mf">7.97000000e02</span><span class="p">,</span>
+            <span class="mf">2.23700000e03</span><span class="p">,</span>
+            <span class="mf">7.06000000e02</span><span class="p">,</span>
+            <span class="mf">2.17360000e00</span><span class="p">,</span>
+            <span class="mf">5.48583569e00</span><span class="p">,</span>
+            <span class="mf">2.05783630e-01</span><span class="p">,</span>
+            <span class="mf">3.16855524e00</span><span class="p">,</span>
+            <span class="mf">1.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">LIN_REG</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">arr</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">85658</span></div>
+
+
+<div class="viewcode-block" id="test_d_tree"><a class="viewcode-back" href="../../../api.html#tests.unit_tests.test_data_ingestion.test_d_tree">[docs]</a><span class="k">def</span> <span class="nf">test_d_tree</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">=</span><span class="n">MODEL_PATH</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make model prediction</span>
+
+<span class="sd">    Note: Model should exist in the given path</span>
+
+<span class="sd">    :param MODEL_PATH: Path of the model</span>
+<span class="sd">    :returns: An assertion</span>
+
+<span class="sd">    &gt;&gt;&gt; test_d_tree(MODEL_PATH=MODEL_PATH)</span>
+<span class="sd">    assert True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">D_TREE</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="p">,</span> <span class="s2">&quot;d_tree.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="o">-</span><span class="mf">1.21460000e02</span><span class="p">,</span>
+            <span class="mf">3.85200000e01</span><span class="p">,</span>
+            <span class="mf">2.90000000e01</span><span class="p">,</span>
+            <span class="mf">3.87300000e03</span><span class="p">,</span>
+            <span class="mf">7.97000000e02</span><span class="p">,</span>
+            <span class="mf">2.23700000e03</span><span class="p">,</span>
+            <span class="mf">7.06000000e02</span><span class="p">,</span>
+            <span class="mf">2.17360000e00</span><span class="p">,</span>
+            <span class="mf">5.48583569e00</span><span class="p">,</span>
+            <span class="mf">2.05783630e-01</span><span class="p">,</span>
+            <span class="mf">3.16855524e00</span><span class="p">,</span>
+            <span class="mf">1.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">D_TREE</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">arr</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">72100</span></div>
+
+
+<div class="viewcode-block" id="test_rforest"><a class="viewcode-back" href="../../../api.html#tests.unit_tests.test_data_ingestion.test_rforest">[docs]</a><span class="k">def</span> <span class="nf">test_rforest</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">=</span><span class="n">MODEL_PATH</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make model prediction</span>
+
+<span class="sd">    Note: Model should exist in the given path</span>
+
+<span class="sd">    :param MODEL_PATH: Path of the model</span>
+<span class="sd">    :returns: An assertion</span>
+
+<span class="sd">    &gt;&gt;&gt; test_rforest(MODEL_PATH=MODEL_PATH)</span>
+<span class="sd">    assert True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">RFOREST_REG</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="p">,</span> <span class="s2">&quot;random_forest.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="o">-</span><span class="mf">1.18390000e02</span><span class="p">,</span>
+            <span class="mf">3.41200000e01</span><span class="p">,</span>
+            <span class="mf">2.90000000e01</span><span class="p">,</span>
+            <span class="mf">6.44700000e03</span><span class="p">,</span>
+            <span class="mf">1.01200000e03</span><span class="p">,</span>
+            <span class="mf">2.18400000e03</span><span class="p">,</span>
+            <span class="mf">9.60000000e02</span><span class="p">,</span>
+            <span class="mf">8.28160000e00</span><span class="p">,</span>
+            <span class="mf">6.71562500e00</span><span class="p">,</span>
+            <span class="mf">1.56972235e-01</span><span class="p">,</span>
+            <span class="mf">2.27500000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+            <span class="mf">0.00000000e00</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">RFOREST_REG</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">arr</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">491164</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">mle-training</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">Test_data_ingestion</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Deepak Sharma.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
