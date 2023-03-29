@@ -20,15 +20,18 @@ The following techniques have been used:
 
 To download the CSV file<br>
 -> python3 src/ingest.py<br>
+
 To display the supported command line arguments<br>
 -> python3 src/ingest.py -h<br> 
 
 To Train with the dataset<br>
 -> python3 src/train.py<br>
+
 To display the supported command line arguments<br>
 -> python3 src/train.py -h<br> 
 
 To evaluate the trained model<br>
 -> python3 src/score.py<br>
+
 To display the supported command line arguments<br>
 -> python3 src/score.py -h<br>
