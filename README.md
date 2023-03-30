@@ -12,9 +12,26 @@ The following techniques have been used:
  - We prepare and clean the data. We check and impute for missing values.
  - Features are generated and the variables are checked for correlation.
  - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
- - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is mean squared error.
+ - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is (root) mean squared error, MAE.
 
-## To excute the script
--> conda env create -f env.yml <br>
+## To execute the script
+-> conda env create -f linux_cpu_py310.yml <br>
 -> conda activate mle-dev<br>
--> python nonstandardcode.py<br>
+
+To download the CSV file<br>
+-> python3 src/ingest.py<br>
+
+To display the supported command line arguments<br>
+-> python3 src/ingest.py -h<br> 
+
+To Train with the dataset<br>
+-> python3 src/train.py<br>
+
+To display the supported command line arguments<br>
+-> python3 src/train.py -h<br> 
+
+To evaluate the trained model<br>
+-> python3 src/score.py<br>
+
+To display the supported command line arguments<br>
+-> python3 src/score.py -h<br>
