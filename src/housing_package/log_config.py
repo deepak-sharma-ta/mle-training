@@ -48,7 +48,8 @@ def configure_logger(
 
     Returns
     -----------
-    logging.Logger
+    logger: logging.Logger
+        A logger which contains the requested configuration
     """
 
     if not cfg:

@@ -54,8 +54,8 @@ def load_housing_data(housing_path: str):
 
     Returns
     -------
-    pd.DataFrame
-
+    df: pd.DataFrame
+        It is a pandas Dataframe with rows x columns
     """
     csv_path = os.path.join(housing_path, "housing.csv")
 

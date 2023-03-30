@@ -24,17 +24,16 @@ def income_cat_proportions(data: str):
 
     Parameters
     ----------
-
     data : str
         Path of the dataset
 
     Returns
     -----------
-    proportion of income category
-
+    income_prop: pd.Series
+        proportion of income category
     """
-
-    return data["income_cat"].value_counts() / len(data)
+    income_prop = data["income_cat"].value_counts() / len(data)
+    return income_prop
 
 
 if __name__ == "__main__":

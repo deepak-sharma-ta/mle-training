@@ -32,8 +32,11 @@ def lin_reg_pred(
 
     Returns
     -----------
-    rmse, mae
+    rmse: float
+        A non-negative floating point value (the best value is 0.0)
 
+    mae: float
+        A non-negative floating point. The best value is 0.0
     """
 
     LIN_REG = pickle.load(open(os.path.join(MODEL_PATH, "lin_reg.pkl"), "rb"))
@@ -57,15 +60,20 @@ def dtree_pred(
 
     MODEL_PATH : str
         Path of the model
+
     housing_prepared : csv
         Pre-processed housing dataset with features
+
     housing_labels : csv
         Target labels of the housing dataset
 
     Returns
     -----------
-    mse, rmse
+    mse: float
+        A non-negative floating point. The best value is 0.0
 
+    rmse: float
+        It is the square root of mse (the best value is 0.0)
     """
 
     D_TREE = pickle.load(open(os.path.join(MODEL_PATH, "d_tree.pkl"), "rb"))
@@ -92,8 +100,8 @@ def rforest_pred(MODEL_PATH: str, X_test_prepared: pd.DataFrame, y_test: pd.Data
 
     Returns
     -----------
-    mse
-
+    mse: float
+        A non-negative floating point. The best value is 0.0
     """
 
     RFOREST_REG = pickle.load(open(os.path.join(MODEL_PATH, "random_forest.pkl"), "rb"))

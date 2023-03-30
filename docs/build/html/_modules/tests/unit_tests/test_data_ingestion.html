@@ -40,11 +40,8 @@
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">tarfile</span>
 
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/home/deepak/practice_git_repo/assignment2/mle-training/&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">src.housing_package.ingest_data</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">load_housing_data</span><span class="p">,</span>
-<span class="p">)</span>
 
 <span class="n">DOWNLOAD_ROOT</span> <span class="o">=</span> <span class="s2">&quot;http://raw.githubusercontent.com/ageron/handson-ml/master/&quot;</span>
 <span class="n">HOUSING_URL</span> <span class="o">=</span> <span class="n">DOWNLOAD_ROOT</span> <span class="o">+</span> <span class="s2">&quot;datasets/housing/housing.tgz&quot;</span>

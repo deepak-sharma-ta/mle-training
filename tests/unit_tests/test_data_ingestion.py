@@ -6,14 +6,11 @@ import numpy as np
 import requests
 import tarfile
 
-sys.path.append("/home/deepak/practice_git_repo/assignment2/mle-training/")
-
-from src.housing_package.ingest_data import (
-    load_housing_data,
-)
 
 DOWNLOAD_ROOT = "http://raw.githubusercontent.com/ageron/handson-ml/master/"
 HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
+
+sys.path.append(".")
 
 
 def test_fetch_tgz(housing_url=HOUSING_URL):
