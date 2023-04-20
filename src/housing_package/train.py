@@ -20,7 +20,7 @@ import mlflow
 import mlflow.sklearn
 
 sys.path.insert(0, os.path.abspath("."))
-from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
+from housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
 def income_cat_proportions(data: str):

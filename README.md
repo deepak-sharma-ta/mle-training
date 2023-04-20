@@ -5,14 +5,16 @@ The housing data can be downloaded from https://raw.githubusercontent.com/ageron
 The following techniques have been used: 
 
  - Linear regression
- - Decision Tree
- - Random Forest
+ - Decision Tree Regressor
+ - Random Forest Regressor
 
 ## Steps performed
  - We prepare and clean the data. We check and impute for missing values.
  - Features are generated and the variables are checked for correlation.
- - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
+ - Multiple sampling techniques are evaluated. The data set is split into train and test.
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is (root) mean squared error, MAE.
+
+## To setup the environment:
 
 ## To execute the script
 -> conda env create -f linux_cpu_py310.yml <br>
