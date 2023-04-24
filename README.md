@@ -14,24 +14,40 @@ The following techniques have been used:
  - Multiple sampling techinuqies are evaluated. The data set is split into train and test.
  - All the above said modelling techniques are tried and evaluated. The final metric used to evaluate is (root) mean squared error, MAE.
 
-## To execute the script
--> conda env create -f linux_cpu_py310.yml <br>
--> conda activate mle-dev<br>
+## To create the docker image:
+-> docker build -t housing_docker .
 
-To download the CSV file<br>
--> python3 src/ingest.py<br>
+## To run the container
+docker run -dit --name housing_docker housing_docker
 
-To display the supported command line arguments<br>
--> python3 src/ingest.py -h<br> 
+## Go inside the conatiner:
+-> docker exec -it housing_docker bash
 
-To Train with the dataset<br>
--> python3 src/train.py<br>
+## To create and activate the environment
+-> conda env create -f app/deploy/conda/linux_cpu_py310.yml <br>
 
-To display the supported command line arguments<br>
--> python3 src/train.py -h<br> 
+-> conda init bash
 
-To evaluate the trained model<br>
--> python3 src/score.py<br>
+-> Restart the shell
 
-To display the supported command line arguments<br>
--> python3 src/score.py -h<br>
+-> conda activate mle-dev-docker<br>
+
+# To download the CSV file<br>
+-> cd app/
+
+-> python3 src/housing_package/ingest_data.py<br>
+
+# To display the supported command line arguments<br>
+-> python3 src/housing_package/ingest_data.py -h<br> 
+
+# To Train with the dataset<br>
+-> python3 src/housing_package/train.py<br>
+
+# To display the supported command line arguments<br>
+-> python3 src/housing_package/train.py -h<br> 
+
+# To evaluate the trained model<br>
+-> python3 src/housing_package/score.py<br>
+
+# To display the supported command line arguments<br>
+-> python3 src/housing_package/score.py -h<br>
