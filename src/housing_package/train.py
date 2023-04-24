@@ -14,6 +14,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+import mlflow
+import mlflow.sklearn
 
 sys.path.insert(0, os.path.abspath("."))
 from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
@@ -34,6 +38,14 @@ def income_cat_proportions(data: str):
     """
     income_prop = data["income_cat"].value_counts() / len(data)
     return income_prop
+
+
+def eval_metrics(actual, pred):
+    # compute relevant metrics
+    rmse = np.sqrt(mean_squared_error(actual, pred))
+    mae = mean_absolute_error(actual, pred)
+    r2 = r2_score(actual, pred)
+    return rmse, mae, r2
 
 
 if __name__ == "__main__":
@@ -101,6 +113,16 @@ if __name__ == "__main__":
         console=CONSOLE_LOG,
         log_level=LOGGING_DEFAULT_CONFIG["root"]["level"],
     )
+
+    remote_server_uri = "http://127.0.0.1:5000"  # set to your server URI
+    mlflow.set_tracking_uri(
+        remote_server_uri
+    )  # or set the MLFLOW_TRACKING_URI in the env
+
+    ml_uri = mlflow.tracking.get_tracking_uri()
+    experiment_id = mlflow.create_experiment("housing_prediciton_training3")
+
+    logger.info(f"mlflow uri: {ml_uri}")
     logger.info("Started logging train.py")
 
     train_set = pd.read_csv(os.path.join(PATH, "train_set.csv"))
@@ -152,65 +174,136 @@ if __name__ == "__main__":
     housing_labels.to_csv(os.path.join(PATH, "housing_labels.csv"), index=False)
     logger.info("Pre-processing done!")
 
-    lin_reg = LinearRegression()
-    lin_reg.fit(housing_prepared, housing_labels)
+    random_state = 42
 
-    FNAME = "lin_reg.pkl"
-    pickle.dump(lin_reg, open(os.path.join(OUTPUT_PATH, FNAME), "wb"))
-    logger.info("Dumped Linear Regression")
+    with mlflow.start_run(
+        run_name="HOUSING_TRAINING",
+        experiment_id=experiment_id,
+        tags={"version": "3.2"},
+    ) as parent_run:
+        mlflow.log_param("parent", "yes")
 
-    tree_reg = DecisionTreeRegressor(random_state=42)
-    tree_reg.fit(housing_prepared, housing_labels)
+        with mlflow.start_run(
+            run_name="LinearRegression",
+            experiment_id=experiment_id,
+            nested=True,
+        ):
+            lin_reg = LinearRegression()
+            lin_reg.fit(housing_prepared, housing_labels)
 
-    FNAME = "d_tree.pkl"
-    pickle.dump(tree_reg, open(os.path.join(OUTPUT_PATH, FNAME), "wb"))
-    logger.info("Dumped Decision Tree")
+            FNAME = "lin_reg.pkl"
+            pickle.dump(lin_reg, open(os.path.join(OUTPUT_PATH, FNAME), "wb"))
+            logger.info("Dumped Linear Regression")
+            prediction = lin_reg.predict(housing_prepared)
 
-    param_distribs = {
-        "n_estimators": randint(low=1, high=200),
-        "max_features": randint(low=1, high=8),
-    }
+            (rmse, mae, r2) = eval_metrics(housing_labels, prediction)
 
-    forest_reg = RandomForestRegressor(random_state=42)
-    rnd_search = RandomizedSearchCV(
-        forest_reg,
-        param_distributions=param_distribs,
-        n_iter=10,
-        cv=5,
-        scoring="neg_mean_squared_error",
-        random_state=42,
-    )
-    rnd_search.fit(housing_prepared, housing_labels)
-    cvres = rnd_search.cv_results_
-    for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
-        print(np.sqrt(-mean_score), params)
+            mlflow.log_param("child", "yes")
+            mlflow.log_param(key="random_state", value=random_state)
+            mlflow.log_metric(key="rmse", value=rmse)
+            mlflow.log_metrics({"mae": mae, "r2": r2})
+            mlflow.log_artifact(os.path.join(PATH, "housing_prepared.csv"))
+            mlflow.log_artifact(os.path.join(PATH, "housing_labels.csv"))
+            print(f"Save to: {mlflow.get_artifact_uri()}")
+            logger.info(f"Save to: {mlflow.get_artifact_uri()}")
 
-    param_grid = [
-        # try 12 (3×4) combinations of hyperparameters
-        {"n_estimators": [3, 10, 30], "max_features": [2, 4, 6, 8]},
-        # then try 6 (2×3) combinations with bootstrap set as False
-        {"bootstrap": [False], "n_estimators": [3, 10], "max_features": [2, 3, 4]},
-    ]
+            mlflow.sklearn.log_model(lin_reg, "LinearRegression")
 
-    forest_reg = RandomForestRegressor(random_state=42)
-    # train across 5 folds, that's a total of (12+6)*5=90 rounds of training
-    grid_search = GridSearchCV(
-        forest_reg,
-        param_grid,
-        cv=5,
-        scoring="neg_mean_squared_error",
-        return_train_score=True,
-    )
-    grid_search.fit(housing_prepared, housing_labels)
+        with mlflow.start_run(
+            run_name="DecisionTreeRegressor",
+            experiment_id=experiment_id,
+            nested=True,
+        ):
+            tree_reg = DecisionTreeRegressor(random_state=random_state)
+            tree_reg.fit(housing_prepared, housing_labels)
 
-    cvres = grid_search.cv_results_
-    for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
-        print(np.sqrt(-mean_score), params)
+            FNAME = "d_tree.pkl"
+            pickle.dump(tree_reg, open(os.path.join(OUTPUT_PATH, FNAME), "wb"))
+            logger.info("Dumped Decision Tree")
 
-    feature_importances = grid_search.best_estimator_.feature_importances_
-    sorted(zip(feature_importances, housing_prepared.columns), reverse=True)
+            prediction = tree_reg.predict(housing_prepared)
 
-    final_model = grid_search.best_estimator_
+            (rmse, mae, r2) = eval_metrics(housing_labels, prediction)
+
+            mlflow.log_param("child", "yes")
+            mlflow.log_param(key="random_state", value=random_state)
+            mlflow.log_metric(key="rmse", value=rmse)
+            mlflow.log_metrics({"mae": mae, "r2": r2})
+            mlflow.log_artifact(os.path.join(PATH, "housing_prepared.csv"))
+            mlflow.log_artifact(os.path.join(PATH, "housing_labels.csv"))
+            print(f"Save to: {mlflow.get_artifact_uri()}")
+            logger.info(f"Save to: {mlflow.get_artifact_uri()}")
+
+            mlflow.sklearn.log_model(lin_reg, "DecisionTreeRegressor")
+
+        # param_distribs = {
+        #     "n_estimators": randint(low=1, high=200),
+        #     "max_features": randint(low=1, high=8),
+        # }
+
+        # forest_reg = RandomForestRegressor(random_state=42)
+        # rnd_search = RandomizedSearchCV(
+        #     forest_reg,
+        #     param_distributions=param_distribs,
+        #     n_iter=10,
+        #     cv=5,
+        #     scoring="neg_mean_squared_error",
+        #     random_state=42,
+        # )
+        # rnd_search.fit(housing_prepared, housing_labels)
+        # cvres = rnd_search.cv_results_
+        # for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
+        #     print(np.sqrt(-mean_score), params)
+
+        with mlflow.start_run(
+            run_name="RandomForestRegressor",
+            experiment_id=experiment_id,
+            nested=True,
+        ):
+            param_grid = [
+                # try 12 (3×4) combinations of hyperparameters
+                {"n_estimators": [3, 10, 30], "max_features": [2, 4, 6, 8]},
+                # then try 6 (2×3) combinations with bootstrap set as False
+                {
+                    "bootstrap": [False],
+                    "n_estimators": [3, 10],
+                    "max_features": [2, 3, 4],
+                },
+            ]
+
+            forest_reg = RandomForestRegressor(random_state=random_state)
+            # train across 5 folds, that's a total of (12+6)*5=90 rounds of training
+            grid_search = GridSearchCV(
+                forest_reg,
+                param_grid,
+                cv=5,
+                scoring="neg_mean_squared_error",
+                return_train_score=True,
+            )
+            grid_search.fit(housing_prepared, housing_labels)
+
+            cvres = grid_search.cv_results_
+            for mean_score, params in zip(cvres["mean_test_score"], cvres["params"]):
+                print(np.sqrt(-mean_score), params)
+
+            feature_importances = grid_search.best_estimator_.feature_importances_
+            sorted(zip(feature_importances, housing_prepared.columns), reverse=True)
+
+            final_model = grid_search.best_estimator_
+            predictions = final_model.predict(housing_prepared)
+
+            (rmse, mae, r2) = eval_metrics(housing_labels, prediction)
+
+            mlflow.log_param("child", "yes")
+            mlflow.log_param(key="random_state", value=random_state)
+            mlflow.log_metric(key="rmse", value=rmse)
+            mlflow.log_metrics({"mae": mae, "r2": r2})
+            mlflow.log_artifact(os.path.join(PATH, "housing_prepared.csv"))
+            mlflow.log_artifact(os.path.join(PATH, "housing_labels.csv"))
+            print(f"Save to: {mlflow.get_artifact_uri()}")
+            logger.info(f"Save to: {mlflow.get_artifact_uri()}")
+
+            mlflow.sklearn.log_model(lin_reg, "RandomForestRegressor")
 
     X_test = strat_test_set.drop("median_house_value", axis=1)
     y_test = strat_test_set["median_house_value"].copy()
