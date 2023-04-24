@@ -20,15 +20,11 @@ The following techniques have been used:
 ## To run the container
 docker run -dit --name housing_docker housing_docker
 
-## Go inside the conatiner:
--> docker exec -it housing_docker bash
+## Go inside the conatiner as root user:
+-> docker exec -u 0 -it housing_docker bash
 
 ## To create and activate the environment
 -> conda env create -f app/deploy/conda/linux_cpu_py310.yml <br>
-
--> conda init bash
-
--> Restart the shell
 
 -> conda activate mle-dev-docker<br>
 
