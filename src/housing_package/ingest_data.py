@@ -15,7 +15,7 @@ from sklearn.model_selection import (
 )
 import sys
 
-sys.path.append("/home/deepak/practice_git_repo/assignment2/mle-training/")
+sys.path.append("/app")
 from src.housing_package.log_config import LOGGING_DEFAULT_CONFIG, configure_logger
 
 
