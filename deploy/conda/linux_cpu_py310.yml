@@ -1,4 +1,4 @@
-name: mle-dev-ml-flow
+name: mle-dev-docker
 channels:
   - defaults
 dependencies:
@@ -143,9 +143,4 @@ dependencies:
       - sklearn==0.0.post1
       - stubs==1.0.0
       - threadpoolctl==3.1.0
-      - mlflow==2.2.2
-      - pipfile==0.0.2
-      - psycopg2==2.9.6
-      - keras==2.12.0
-      - tensorflow==2.12.0
-prefix: /home/deepak/miniconda3/envs/mle-dev-ml-flow
+prefix: /home/deepak/miniconda3/envs/mle-dev-docker
