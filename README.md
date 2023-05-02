@@ -28,20 +28,20 @@ The following techniques have been used:
 ## Path to execute the scripts from: 
 -> /app
 
-To download the CSV file<br>
+## To download the CSV file<br>
 -> python3 src/housing_package/ingest_data.py<br>
 
-To display the supported command line arguments<br>
+## To display the supported command line arguments<br>
 -> python3 src/housing_package/ingest_data.py -h<br> 
 
-To Train with the dataset<br>
+## To Train with the dataset<br>
 -> python3 src/housing_package/train.py<br>
 
-To display the supported command line arguments<br>
+## To display the supported command line arguments<br>
 -> python3 src/housing_package/train.py -h<br> 
 
-To evaluate the trained model<br>
+## To evaluate the trained model<br>
 -> python3 src/housing_package/score.py<br>
 
-To display the supported command line arguments<br>
+## To display the supported command line arguments<br>
 -> python3 src/housing_package/score.py -h<br>
